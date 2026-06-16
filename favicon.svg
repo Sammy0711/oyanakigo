@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ª">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
   <rect width="32" height="32" rx="7" fill="#3a7d5d"/>
-  <text x="16" y="16.5" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic',Meiryo,sans-serif" font-size="21" font-weight="500">ª</text>
+  <circle cx="13" cy="15" r="6" fill="#ffffff"/>
+  <circle cx="22" cy="19" r="4" fill="#ffffff"/>
 </svg>
