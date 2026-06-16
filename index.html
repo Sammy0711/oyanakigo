@@ -40,6 +40,10 @@ section .lead{text-align:center;color:var(--soft);margin-bottom:34px;}
 .qr{margin:22px auto 0;}
 .qr img{width:170px;height:170px;border:1px solid var(--line);border-radius:10px;}
 .qr-link{display:inline-block;margin-top:10px;font-size:.9rem;}
+a.card{text-decoration:none;color:inherit;display:block;transition:box-shadow .15s;}
+a.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.07);}
+.list li a{text-decoration:none;color:inherit;display:block;}
+.list li a:hover b{color:var(--green);}
 footer{background:#2c2b29;color:#cfc9bf;font-size:.8rem;padding:30px 0;line-height:1.8;}
 footer .wrap{text-align:center;}
 @media(max-width:600px){.hero h1{font-size:1.4rem;}}
@@ -67,9 +71,9 @@ footer .wrap{text-align:center;}
     <h2>「親なきあと」とは</h2>
     <p class="lead">親が亡くなった後も、ご本人が安心して暮らし続けられるよう、今のうちから備えておくことです。</p>
     <div class="cards">
-      <div class="card"><h3>お金</h3><p>財産をどう遺し、誰が管理し、ご本人の生活費にどうつなげるか。民事信託や遺言で道筋をつくります。</p></div>
-      <div class="card"><h3>くらし</h3><p>日々の支援や意思決定を誰が支えるか。任意後見や見守りの仕組みを準備します。</p></div>
-      <div class="card"><h3>住まい</h3><p>これからどこで、どのように暮らすか。住まいの選択肢と必要な手続を整理します。</p></div>
+      <a class="card" href="money.html"><h3>お金</h3><p>財産をどう遺し、誰が管理し、ご本人の生活費にどうつなげるか。民事信託や遺言で道筋をつくります。</p></a>
+      <a class="card" href="kurashi.html"><h3>くらし</h3><p>日々の支援や意思決定を誰が支えるか。任意後見や見守りの仕組みを準備します。</p></a>
+      <a class="card" href="sumai.html"><h3>住まい</h3><p>これからどこで、どのように暮らすか。住まいの選択肢と必要な手続を整理します。</p></a>
     </div>
   </div>
 </section>
@@ -79,11 +83,11 @@ footer .wrap{text-align:center;}
     <h2>当事務所でできること</h2>
     <p class="lead">行政書士として、書類作成と手続サポートを通じてお手伝いします。</p>
     <ul class="list">
-      <li><b>任意後見契約書・見守り契約</b>などの文案作成サポート</li>
-      <li><b>遺言書</b>の文案作成サポート（公正証書遺言の準備のお手伝い）</li>
-      <li><b>民事信託（福祉型信託）</b>契約書の作成サポート</li>
-      <li><b>各種許認可・諸手続</b>の書類作成・申請サポート</li>
-      <li><b>関係する専門職へのおつなぎ</b>（必要に応じて連携体制をご案内）</li>
+      <li><a href="service-koken.html"><b>任意後見契約書・見守り契約</b>などの文案作成サポート</a></li>
+      <li><a href="service-yuigon.html"><b>遺言書</b>の文案作成サポート（公正証書遺言の準備のお手伝い）</a></li>
+      <li><a href="service-shintaku.html"><b>民事信託（福祉型信託）</b>契約書の作成サポート</a></li>
+      <li><a href="service-kyoninka.html"><b>各種許認可・諸手続</b>の書類作成・申請サポート</a></li>
+      <li><a href="service-renkei.html"><b>関係する専門職へのおつなぎ</b>（必要に応じて連携体制をご案内）</a></li>
     </ul>
     <p class="note">※不動産の登記は司法書士、税務の申告・相談は税理士、法律相談や紛争への対応は弁護士の業務です。当事務所はこれらの専門職と連携し、窓口としてご相談を整理・おつなぎします。</p>
   </div>
