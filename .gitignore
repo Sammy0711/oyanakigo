@@ -1,0 +1,21 @@
+# 機密・環境変数（絶対にコミットしない）
+.env
+.env.*
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS・エディタ
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 一時・ログ
+*.log
+tmp/
