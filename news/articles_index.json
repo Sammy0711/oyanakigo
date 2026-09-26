@@ -8,7 +8,10 @@
       "file": "2026-09-26-oyanakiato-soudan-memo.html",
       "title": "「親なきあと」の備えは何から？本人の希望と暮らしを整理する相談メモ",
       "summary": "ご本人の希望と、お金・くらし・住まいの現状を整理するメモの作り方。公的な相談先と、最初に伝えたいことをご案内します。",
-      "category": { "id": "preparation", "label": "親なきあとの準備" },
+      "category": {
+        "id": "preparation",
+        "label": "親なきあとの準備"
+      },
       "published_date": "2026-09-26",
       "updated_date": "2026-09-26",
       "verified_date": "2026-09-26",
@@ -58,17 +61,23 @@
         {
           "id": "claim-person",
           "statement": "意思決定支援では本人の意思・好み・価値観、保留や変更を尊重し、説明や意思疎通の方法を工夫する。",
-          "source_ids": ["mhlw"]
+          "source_ids": [
+            "mhlw"
+          ]
         },
         {
           "id": "claim-note",
           "statement": "寝屋川市のサポートノートは利用に向けて考えることを記入し、支援者と相談して活用する、対象条件のある事業である。",
-          "source_ids": ["neyagawa"]
+          "source_ids": [
+            "neyagawa"
+          ]
         },
         {
           "id": "claim-osaka",
           "statement": "大阪市の各区の基幹相談支援センターは、本人・家族等の相談や福祉サービス利用援助、専門機関情報の提供を行う。",
-          "source_ids": ["osaka"]
+          "source_ids": [
+            "osaka"
+          ]
         }
       ],
       "editorial_proposals": "相談メモの4項目、架空の記入例、未確認事項や確認日の記入、共有方法、相談時の3項目は編集上の提案。公的な必須手続として扱わない。",
@@ -77,16 +86,208 @@
         "reviewer": "Codex（一次情報との照合。事務所代表による監修を意味しない）",
         "article_sha256": "ffb1b02bff2cc588ba8616ffb673e47861c7ef2d5e7afe114ac4a301c541646d",
         "gates": [
-          { "id": 1, "result": "pass", "evidence": "一次情報3件の本文を取得して確認した。検索結果だけを出典にしていない。" },
-          { "id": 2, "result": "pass", "evidence": "制度・公的窓口の記述には厚生労働省と自治体の一次情報だけを用いた。" },
-          { "id": 3, "result": "pass", "evidence": "3つの事実主張に本文アンカー、出典番号、claimsの対応関係を付けた。" },
-          { "id": 4, "result": "pass", "evidence": "取得できない情報は補完せず、架空例と編集提案を本文に明記した。" },
-          { "id": 5, "result": "pass", "evidence": "効果保証や制度の一律推奨を避け、個別の状況に応じて確認する書き方にした。" },
-          { "id": 6, "result": "pass", "evidence": "記事と全出典に確認日を付けた。資料の日付・確認日・記事日付を分離した。" },
-          { "id": 7, "result": "pass", "evidence": "未施行の法改正を紹介せず、市の事業の地域と対象条件を明示。利用を保証しない。" },
-          { "id": 8, "result": "pass", "evidence": "相談導線は内容の整理と取り扱える書類・手続に限定し、他分野は関係専門職へ案内した。" },
-          { "id": 9, "result": "pass", "evidence": "本文を通読し、不自然な検索語の羅列・反復がないことを確認した。" },
-          { "id": 10, "result": "pass", "evidence": "既存9ページと旧7記事に相談メモの具体的な作り方はなく、独自の読者行動を示した。" }
+          {
+            "id": 1,
+            "result": "pass",
+            "evidence": "一次情報3件の本文を取得して確認した。検索結果だけを出典にしていない。"
+          },
+          {
+            "id": 2,
+            "result": "pass",
+            "evidence": "制度・公的窓口の記述には厚生労働省と自治体の一次情報だけを用いた。"
+          },
+          {
+            "id": 3,
+            "result": "pass",
+            "evidence": "3つの事実主張に本文アンカー、出典番号、claimsの対応関係を付けた。"
+          },
+          {
+            "id": 4,
+            "result": "pass",
+            "evidence": "取得できない情報は補完せず、架空例と編集提案を本文に明記した。"
+          },
+          {
+            "id": 5,
+            "result": "pass",
+            "evidence": "効果保証や制度の一律推奨を避け、個別の状況に応じて確認する書き方にした。"
+          },
+          {
+            "id": 6,
+            "result": "pass",
+            "evidence": "記事と全出典に確認日を付けた。資料の日付・確認日・記事日付を分離した。"
+          },
+          {
+            "id": 7,
+            "result": "pass",
+            "evidence": "未施行の法改正を紹介せず、市の事業の地域と対象条件を明示。利用を保証しない。"
+          },
+          {
+            "id": 8,
+            "result": "pass",
+            "evidence": "相談導線は内容の整理と取り扱える書類・手続に限定し、他分野は関係専門職へ案内した。"
+          },
+          {
+            "id": 9,
+            "result": "pass",
+            "evidence": "本文を通読し、不自然な検索語の羅列・反復がないことを確認した。"
+          },
+          {
+            "id": 10,
+            "result": "pass",
+            "evidence": "既存9ページと旧7記事に相談メモの具体的な作り方はなく、独自の読者行動を示した。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nichijou-seikatsu-jiritsu-shien-osaka",
+      "slug": "nichijou-seikatsu-jiritsu-shien-osaka",
+      "file": "2026-09-26-nichijou-seikatsu-jiritsu-shien-osaka.html",
+      "title": "日常生活自立支援事業で相談できること・大阪市の窓口",
+      "summary": "日常生活自立支援事業の対象条件、支援内容、大阪市での相談先を、取得時点の公式案内に基づいて説明します。",
+      "category": {
+        "id": "life-support",
+        "label": "暮らしの支援"
+      },
+      "published_date": "2026-09-26",
+      "updated_date": "2026-09-26",
+      "verified_date": "2026-09-26",
+      "status": "release",
+      "sources": [
+        {
+          "id": "mhlw-daily",
+          "publisher": "厚生労働省",
+          "title": "日常生活自立支援事業",
+          "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/chiiki-fukusi-yougo/index.html",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "unknown",
+          "checked_on": "2026-09-26",
+          "locator": "対象者・手続きの流れ・援助の内容・日常生活自立支援事業とは",
+          "verification": "保存済み一次資料の引用をPythonで照合し、別セッションのAIが本文の主張との対応を審査。"
+        },
+        {
+          "id": "osaka-daily",
+          "publisher": "大阪市",
+          "title": "あんしんさぽーと事業（日常生活自立支援事業）",
+          "url": "https://www.city.osaka.lg.jp/fukushi/page/0000541756.html",
+          "type": "primary",
+          "document_date": "2026-02-17",
+          "date_precision": "day",
+          "date_kind": "page_date",
+          "checked_on": "2026-09-26",
+          "locator": "利用について・概要",
+          "verification": "保存済み一次資料の引用をPythonで照合し、別セッションのAIが本文の主張との対応を審査。"
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim-c1",
+          "statement": "日常生活自立支援事業は、判断能力が不十分な方の地域生活を、利用者との契約に基づく福祉サービス利用援助等で支える。",
+          "source_ids": [
+            "mhlw-daily"
+          ]
+        },
+        {
+          "id": "claim-c2",
+          "statement": "対象者には、判断能力が不十分であることと、本事業の契約内容を判断し得る能力があると認められることの両方が求められる。",
+          "source_ids": [
+            "mhlw-daily"
+          ]
+        },
+        {
+          "id": "claim-c3",
+          "statement": "支援の基準には、福祉サービスや苦情解決制度の利用、住まい・日常生活上の契約・行政手続に関する援助が含まれる。",
+          "source_ids": [
+            "mhlw-daily"
+          ]
+        },
+        {
+          "id": "claim-c4",
+          "statement": "上記に伴う援助の基準には、日常生活費の管理と定期的な訪問による生活変化の察知が含まれる。",
+          "source_ids": [
+            "mhlw-daily"
+          ]
+        },
+        {
+          "id": "claim-c5",
+          "statement": "大阪市は「あんしんさぽーと事業」として、区の社会福祉協議会で福祉サービスの利用や日常的な金銭管理を支援すると案内している。",
+          "source_ids": [
+            "osaka-daily"
+          ]
+        },
+        {
+          "id": "claim-c6",
+          "statement": "大阪市での利用相談先は、お住まいの区の社会福祉協議会である。",
+          "source_ids": [
+            "osaka-daily"
+          ]
+        },
+        {
+          "id": "claim-c7",
+          "statement": "実施主体は生活状況、希望する援助、契約内容を判断し得る能力を確認し、対象と判断した場合は本人の意向を踏まえて支援計画を作り、契約を締結する。",
+          "source_ids": [
+            "mhlw-daily"
+          ]
+        }
+      ],
+      "editorial_proposals": "本文は一次資料の制度説明。相談欄は制度の相談先と当事務所の書類・手続相談を区別した固定案内。",
+      "review": {
+        "reviewed_on": "2026-09-26",
+        "reviewer": "Codexの別セッション審査＋Python整合性検証。人間の監修や公開承認を意味しない。",
+        "article_sha256": "18ab68d1d3a7b8c8c10ec8c2f7d9e831a0f821d53b378db48ee106c51141adf3",
+        "gates": [
+          {
+            "id": 1,
+            "result": "pass",
+            "evidence": "一次資料の取得済みHTML・テキストのハッシュ、引用の実在を確認。"
+          },
+          {
+            "id": 2,
+            "result": "pass",
+            "evidence": "厚生労働省・大阪市の一次資料2件のみ使用。"
+          },
+          {
+            "id": 3,
+            "result": "pass",
+            "evidence": "原稿の制度説明と大阪市の窓口案内は、提示された両資料の全文と一致する。"
+          },
+          {
+            "id": 4,
+            "result": "pass",
+            "evidence": "全7件の主張を資料全文と照合した。本文に根拠のない重要主張は見当たらない。"
+          },
+          {
+            "id": 5,
+            "result": "pass",
+            "evidence": "全7件の主張を資料全文と照合した。本文に根拠のない重要主張は見当たらない。"
+          },
+          {
+            "id": 6,
+            "result": "pass",
+            "evidence": "取得日と資料の記載日を区別し、制度改正日とは扱っていない。 厚生労働省資料の公表日不明を明示し、取得時点の案内として利用前の再確認を促している。"
+          },
+          {
+            "id": 7,
+            "result": "pass",
+            "evidence": "大阪市の窓口案内は大阪市在住者に限定している。 判断能力に関する条件と、契約内容を判断し得る能力に関する条件の両方を記載している。"
+          },
+          {
+            "id": 8,
+            "result": "pass",
+            "evidence": "行政書士事務所が本事業を実施するとは述べず、相談先を社会福祉協議会としている。"
+          },
+          {
+            "id": 9,
+            "result": "pass",
+            "evidence": "題名と見出しは内容に沿い、不自然な語句の反復はない。"
+          },
+          {
+            "id": 10,
+            "result": "pass",
+            "evidence": "既存ページには本事業の対象条件、支援内容、大阪市の窓口をまとめた記事はない。 Pythonによる既存本文・タイトルの重複検査を実施。"
+          }
         ]
       }
     }
