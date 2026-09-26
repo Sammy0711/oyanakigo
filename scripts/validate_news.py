@@ -79,7 +79,7 @@ def validate(root):
     docs = {path.resolve(): Document(path) for path in sorted(news.glob('*.html'))}
     listing = docs[(news / 'index.html').resolve()]
     cards = [node for node in listing.nodes if 'data-article-id' in node['attrs']]
-    expected = sorted(articles, key=lambda a: (-date.fromisoformat(a['published_date']).toordinal(), a['id']))
+    expected = sorted((a for a in articles if a['status'] == 'release'), key=lambda a: (-date.fromisoformat(a['published_date']).toordinal(), a['id']))
     require([node['attrs']['data-article-id'] for node in cards] == [a['id'] for a in expected],
             'index article membership/order mismatch')
     for key in ('id', 'slug', 'file', 'title'):
@@ -94,7 +94,7 @@ def validate(root):
         require(article['slug'] == aid, f'{aid}: slug mismatch')
         require(re.fullmatch(r'\d{4}-\d{2}-\d{2}-' + re.escape(aid) + r'\.html', article['file']),
                 f'{aid}: invalid filename')
-        require(article['status'] in ('ready', 'published'), f'{aid}: not ready for publication')
+        require(article['status'] in ('ready', 'release'), f'{aid}: not ready for publication')
         published = valid_date(article['published_date'])
         updated = valid_date(article['updated_date'])
         verified = valid_date(article['verified_date'])
@@ -117,11 +117,12 @@ def validate(root):
             times = [n for n in doc.select('time') if n['attrs'].get('data-date') == label]
             require(len(times) == 1 and times[0]['attrs'].get('datetime') == article[key],
                     f'{aid}: {label} date mismatch')
-        card = next(n for n in cards if n['attrs']['data-article-id'] == aid)
-        require(article['file'] in card['links'] and article['title'] in card['text']
-                and article['summary'] in card['text'] and article['category']['label'] in card['text'],
-                f'{aid}: index card mismatch')
-        require(card['dates'] == [article['published_date']], f'{aid}: index date mismatch')
+        if article['status'] == 'release':
+            card = next(n for n in cards if n['attrs']['data-article-id'] == aid)
+            require(article['file'] in card['links'] and article['title'] in card['text']
+                    and article['summary'] in card['text'] and article['category']['label'] in card['text'],
+                    f'{aid}: index card mismatch')
+            require(card['dates'] == [article['published_date']], f'{aid}: index date mismatch')
         require(all(link in doc.links for link in ('index.html', '../index.html', '../index.html#contact')),
                 f'{aid}: missing navigation/contact')
         sources = article['sources']

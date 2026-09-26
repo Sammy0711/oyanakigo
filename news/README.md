@@ -1,17 +1,27 @@
 # 記事・お知らせの運用仕様
 
-既存の静的HTMLサイトに追加する記事基盤。自動生成・定期実行・commit・push・デプロイはまだ実装していない。
+既存の静的HTMLサイトの記事基盤。一覧HTMLの自動生成を実装済み。記事本文の自動生成・定期実行・自動commit・push・デプロイ制御は未実装。
 
 ## ファイルと公開状態
 
-- `index.html`：JavaScript不要の一覧。公開日降順、同日ならID順で表示する。
-- `articles_index.json`：UTF-8の管理データ。バージョン付きオブジェクトと記事配列。
+- `index.html`：自動生成されるJavaScript不要の一覧。直接編集しない。releaseのみ、公開日降順、同日ならID順で表示する。
+- `articles_index.json`：UTF-8の管理データ。記事一覧の唯一の正本（Single Source of Truth）。バージョン付きオブジェクトと記事配列。
 - `YYYY-MM-DD-slug.html`：記事。URLは初回作成後に安易に変更しない。
 - `../scripts/validate_news.py`：読み取り専用の構造検証。Python標準ライブラリのみ使用。
+- `../scripts/render_news_index.py`：JSONから一覧HTMLを生成。Python標準ライブラリのみ使用。
+- `../scripts/news_index_template.html`：一覧の外枠・CSS・固定文章。カードのデータは持たない。
 
-本文・一覧HTMLは静的ファイルであり、JSONだけ変更しても画面は更新されない。3点をセットで変更し検証する。既存CSSの配色・フォント・最大幅・角丸を踏襲する。
+記事HTMLを作成しJSONを更新した後、生成プログラムで一覧HTMLを更新する。JSONだけ変更しても配信される画面は更新されない。既存CSSの配色・フォント・最大幅・角丸を踏襲する。
 
-`status` は `ready`（内容確認済み・未公開）または `published`（公開確認済み）。第1号はローカルの `ready`。公開前の `published_date` は公開予定日で、HTMLにも同じ日付を使用する。実際の公開日が異なる場合は、公開前に日付と本文の再確認を行う。`published`への変更は公開結果を確認した後に行う。
+- `draft`：作成中・品質未確認。一覧に表示しない。公開前validatorは不合格にする。
+- `ready`：10品質ゲートで内容確認済み・未公開。一覧に表示しない。公開前validatorでは本文・出典・ハッシュ等を検証する。
+- `release`：品質確認済みで、今回の配信成果物に含める記事。一覧に表示する。本番デプロイの成功を意味しない。
+
+Git内の状態は `draft` → `ready` → `release`。本文の品質確認後にreleaseへ変更し、本文・JSON・生成一覧を同じ公開単位にできる。旧publishedは廃止し、第1号はreleaseへ移行した。公開日・記事HTML・一覧表示は変更しない。
+
+実際の本番状態（DEPLOY_PENDING / DEPLOYED / DEPLOY_FAILED）は公開リポジトリ外のSQLiteで管理する。第1号の本番公開済みという利用者確認は、外部DBへ「利用者申告による既存公開の移行記録」として保存する。今回のコードが本番を再確認したという意味ではない。
+
+`published_date`は配信予定日または記事公開日であり、デプロイ成功の証明ではない。予定日が変わる場合は公開前に日付・本文・出典を再確認する。自動運転ではJSONのstatusだけを信用して公開成功と判定しない。本番URLの内容と対象コミットのデプロイ結果を独立に確認し、外部DBへ記録する。レンダラーは本番確認・Git操作・状態変更を行わない。
 
 静的ファイルはstatusにかかわらず配信可能なので、statusはアクセス制御ではない。未確認原稿をこの公開用ディレクトリに置かない。今後の生成は別の非公開作業領域で行い、全品質ゲートを満たした内容だけをここへ反映する。今回は公開操作をしない。
 
@@ -48,11 +58,41 @@
 1. テーマと読者の次の行動を決め、既存記事との違いを確認する。
 2. 一次情報を収集し、主張と出典の対応を先に記録する。足りなければ原稿を公開領域へ入れない。
 3. 本文・出典番号・確認日・相談導線を作成し、10項目を確認する。
-4. JSONと一覧を更新する。確認済みHTMLのSHA-256をレビューに記録する。
+4. JSONを更新し、下記のコマンドで一覧を生成する。確認済みHTMLのSHA-256をレビューに記録する。
 5. リポジトリルートから `python scripts/validate_news.py` を実行する。Windowsでは利用可能なPython実行ファイルのフルパスでもよい。
 6. デスクトップとスマートフォン幅で表示、目次、内部リンク、出典、相談導線を確認する。
 7. 公開作業は別Phaseの指示に従う。予定日を過ぎた原稿は公開前に再確認する。
 
-## トップページからの入口案（未適用）
+## 一覧生成コマンド
 
-既存トップの「親なきあととは」の直後に「記事・お知らせ」セクションを設け、`news/index.html`へのリンクと第1号のタイトルを表示する案。既存 `.wrap` / `.lead` / `.list` を使えば配色を変えずに追加できる。今回は既存トップを変更していない。
+Python 3.10以上を使用する。リポジトリルートで実行する例（pyが使える環境）：
+
+```powershell
+py -3 scripts/render_news_index.py --check
+py -3 scripts/render_news_index.py
+py -3 scripts/validate_news.py
+```
+
+このPCで確認したPythonを使用する場合：
+
+```powershell
+$newsPython = 'C:\Users\Isamu\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+& $newsPython -B scripts/render_news_index.py --check
+& $newsPython -B scripts/render_news_index.py
+& $newsPython -B scripts/validate_news.py
+& $newsPython -B scripts/test_render_news_index.py
+```
+
+`--check`はJSON・記事ファイル・生成予定HTMLを検証し、差分があれば表示する。一時ファイルを含めファイルを書き込まない。終了コードは0＝一致、1＝生成が必要、2＝入力・生成エラー。通常生成は0＝成功、2＝エラー。
+
+全statusの一覧用必須項目（id、slug、file、status、title、summary、category.id/label、3種類の日付）を検証する。非掲載記事も記事HTMLの実在、ID・URLの一意性、日付の書式を必要とする。draftはこの形式を満たす作業用データとして非公開領域だけで扱う。記事0件・release 0件では空の一覧を生成するが、公開前validatorは従来どおり記事0件を不合格にする。
+
+記事URLは `YYYY-MM-DD-id.html` のnews直下ファイルに限定する。外部URL・上位ディレクトリ・クエリ等は受け付けない。JSONの重複キーも不合格。通常生成では同じディレクトリの一時ファイルへUTF-8・LFで出力し、HTML構造・カード・導線を検証後に置換する。不合格なら既存一覧を保持し、一時ファイルを削除する。同一結果なら既存一覧を置換しない。
+
+レンダラーは一覧用の検証を担当し、本文の品質・出典の正しさ・公開成功を保証しない。生成後は必ずvalidate_news.pyと編集レビューを実施する。
+
+## 現在の一覧デザインとトップページ導線
+
+緑・生成りの配色、Noto Sans JP、最大幅880px、角丸カード、公開日・カテゴリ・見出し・概要・「記事を読む →」を維持。事務所名、リード文、情報確認の注意書き、相談案内、フッターをテンプレートに保持する。トップへは `../index.html`、相談先へは `../index.html#contact`。第1号の記事URLと表示内容は変更しない。
+
+トップの「親なきあととは」の直後に「記事・お知らせ」セクションと `news/index.html` への入口を実装済み。
