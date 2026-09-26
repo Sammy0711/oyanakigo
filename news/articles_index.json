@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "language": "ja",
+  "articles": [
+    {
+      "id": "oyanakiato-soudan-memo",
+      "slug": "oyanakiato-soudan-memo",
+      "file": "2026-09-26-oyanakiato-soudan-memo.html",
+      "title": "「親なきあと」の備えは何から？本人の希望と暮らしを整理する相談メモ",
+      "summary": "ご本人の希望と、お金・くらし・住まいの現状を整理するメモの作り方。公的な相談先と、最初に伝えたいことをご案内します。",
+      "category": { "id": "preparation", "label": "親なきあとの準備" },
+      "published_date": "2026-09-26",
+      "updated_date": "2026-09-26",
+      "verified_date": "2026-09-26",
+      "status": "ready",
+      "sources": [
+        {
+          "id": "mhlw",
+          "publisher": "厚生労働省",
+          "title": "障害福祉サービス等の提供に係る意思決定支援ガイドライン（第2版）",
+          "url": "https://www.mhlw.go.jp/content/12200000/001749795.pdf",
+          "type": "primary",
+          "document_date": "2026-09",
+          "date_precision": "month",
+          "date_kind": "edition",
+          "checked_on": "2026-09-26",
+          "locator": "本文6〜8ページ（PDFの8〜10ページ）、Ⅱ．総論 1．定義・2．基本的原則",
+          "verification": "本文を確認。自己決定の尊重、保留・変更の選択肢、情報提供と意思疎通の工夫を確認。"
+        },
+        {
+          "id": "neyagawa",
+          "publisher": "寝屋川市",
+          "title": "愛情のバトン・親なき後サポートノートについて",
+          "url": "https://www.city.neyagawa.osaka.jp/organization_list/fukushi/shogaifukushi/aijyonobatonoyanakiatosupportnote/26036.html",
+          "type": "primary",
+          "document_date": "2026-07-10",
+          "date_precision": "day",
+          "date_kind": "updated",
+          "checked_on": "2026-09-26",
+          "locator": "親なき後サポートノート：説明・対象者・利用の流れ",
+          "verification": "市の事業例として確認。対象条件があることを本文に明記し、大阪市の事業や全国共通制度として紹介しない。"
+        },
+        {
+          "id": "osaka",
+          "publisher": "大阪市",
+          "title": "障がい者基幹相談支援センター",
+          "url": "https://www.city.osaka.lg.jp/fukushi/page/0000007559.html",
+          "type": "primary",
+          "document_date": "2026-08-14",
+          "date_precision": "day",
+          "date_kind": "page_date",
+          "checked_on": "2026-09-26",
+          "locator": "冒頭の事業説明・各区障がい者基幹相談支援センター一覧",
+          "verification": "各区の設置、本人・家族等の相談、利用援助と専門機関情報の提供を確認。連絡先は公式一覧へ案内する。"
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim-person",
+          "statement": "意思決定支援では本人の意思・好み・価値観、保留や変更を尊重し、説明や意思疎通の方法を工夫する。",
+          "source_ids": ["mhlw"]
+        },
+        {
+          "id": "claim-note",
+          "statement": "寝屋川市のサポートノートは利用に向けて考えることを記入し、支援者と相談して活用する、対象条件のある事業である。",
+          "source_ids": ["neyagawa"]
+        },
+        {
+          "id": "claim-osaka",
+          "statement": "大阪市の各区の基幹相談支援センターは、本人・家族等の相談や福祉サービス利用援助、専門機関情報の提供を行う。",
+          "source_ids": ["osaka"]
+        }
+      ],
+      "editorial_proposals": "相談メモの4項目、架空の記入例、未確認事項や確認日の記入、共有方法、相談時の3項目は編集上の提案。公的な必須手続として扱わない。",
+      "review": {
+        "reviewed_on": "2026-09-26",
+        "reviewer": "Codex（一次情報との照合。事務所代表による監修を意味しない）",
+        "article_sha256": "ffb1b02bff2cc588ba8616ffb673e47861c7ef2d5e7afe114ac4a301c541646d",
+        "gates": [
+          { "id": 1, "result": "pass", "evidence": "一次情報3件の本文を取得して確認した。検索結果だけを出典にしていない。" },
+          { "id": 2, "result": "pass", "evidence": "制度・公的窓口の記述には厚生労働省と自治体の一次情報だけを用いた。" },
+          { "id": 3, "result": "pass", "evidence": "3つの事実主張に本文アンカー、出典番号、claimsの対応関係を付けた。" },
+          { "id": 4, "result": "pass", "evidence": "取得できない情報は補完せず、架空例と編集提案を本文に明記した。" },
+          { "id": 5, "result": "pass", "evidence": "効果保証や制度の一律推奨を避け、個別の状況に応じて確認する書き方にした。" },
+          { "id": 6, "result": "pass", "evidence": "記事と全出典に確認日を付けた。資料の日付・確認日・記事日付を分離した。" },
+          { "id": 7, "result": "pass", "evidence": "未施行の法改正を紹介せず、市の事業の地域と対象条件を明示。利用を保証しない。" },
+          { "id": 8, "result": "pass", "evidence": "相談導線は内容の整理と取り扱える書類・手続に限定し、他分野は関係専門職へ案内した。" },
+          { "id": 9, "result": "pass", "evidence": "本文を通読し、不自然な検索語の羅列・反復がないことを確認した。" },
+          { "id": 10, "result": "pass", "evidence": "既存9ページと旧7記事に相談メモの具体的な作り方はなく、独自の読者行動を示した。" }
+        ]
+      }
+    }
+  ]
+}
