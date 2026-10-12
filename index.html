@@ -47,9 +47,20 @@ a.card{text-decoration:none;color:inherit;display:block;transition:box-shadow .1
 a.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.07);}
 .list li a{text-decoration:none;color:inherit;display:block;}
 .list li a:hover b{color:var(--green);}
+.news-latest{list-style:none;max-width:720px;margin:0 auto;display:grid;gap:14px;}
+.news-latest a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;text-decoration:none;color:inherit;transition:box-shadow .15s,border-color .15s;}
+.news-latest a:hover{box-shadow:0 4px 14px rgba(0,0,0,.07);border-color:var(--green);}
+.news-meta{font-size:.85rem;color:var(--soft);}
+.news-cat{display:inline-block;margin-left:12px;padding:1px 10px;border-radius:20px;background:#eef4ef;color:var(--green-d);font-weight:700;font-size:.78rem;}
+.news-latest h3{font-size:1.08rem;line-height:1.7;color:var(--green-d);margin:8px 0 6px;}
+.news-latest a:hover h3{text-decoration:underline;text-underline-offset:4px;}
+.news-summary{font-size:.92rem;color:var(--soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.news-more{text-align:center;margin-top:26px;}
+.news-more a{display:inline-block;border:2px solid var(--green);color:var(--green-d);font-weight:700;text-decoration:none;padding:10px 28px;border-radius:40px;transition:background .15s,color .15s;}
+.news-more a:hover{background:var(--green);color:#fff;}
 footer{background:#2c2b29;color:#cfc9bf;font-size:.8rem;padding:30px 0;line-height:1.8;}
 footer .wrap{text-align:center;}
-@media(max-width:600px){.hero h1{font-size:1.4rem;}}
+@media(max-width:600px){.hero h1{font-size:1.4rem;}.news-latest a{padding:18px 20px;}}
 </style>
 </head>
 <body>
@@ -85,9 +96,32 @@ footer .wrap{text-align:center;}
   <div class="wrap">
     <h2>記事・お知らせ</h2>
     <p class="lead">親なきあとの備えに役立つ情報をご案内します。</p>
-    <ul class="list">
-      <li><a href="news/index.html"><b>記事・お知らせ一覧を見る →</b></a></li>
+    <!-- LATEST_NEWS_START -->
+    <ul class="news-latest">
+      <li data-article-id="seinen-kouken-minaoshi-2026">
+        <a href="news/2026-10-12-seinen-kouken-minaoshi-2026.html">
+          <p class="news-meta"><time datetime="2026-10-12">2026年10月12日</time><span class="news-cat">後見制度</span></p>
+          <h3>成年後見制度の見直し（2026年改正）と、親なきあとの備えで今できること</h3>
+          <p class="news-summary">成年後見制度（法定後見・任意後見）の仕組みと、2026年6月に成立した見直しの要点、施行までに確認したいことを法務省・裁判所の案内に基づいて説明します。</p>
+        </a>
+      </li>
+      <li data-article-id="nichijou-seikatsu-jiritsu-shien-osaka">
+        <a href="news/2026-09-26-nichijou-seikatsu-jiritsu-shien-osaka.html">
+          <p class="news-meta"><time datetime="2026-09-26">2026年9月26日</time><span class="news-cat">暮らしの支援</span></p>
+          <h3>日常生活自立支援事業で相談できること・大阪市の窓口</h3>
+          <p class="news-summary">日常生活自立支援事業の対象条件、支援内容、大阪市での相談先を、取得時点の公式案内に基づいて説明します。</p>
+        </a>
+      </li>
+      <li data-article-id="oyanakiato-soudan-memo">
+        <a href="news/2026-09-26-oyanakiato-soudan-memo.html">
+          <p class="news-meta"><time datetime="2026-09-26">2026年9月26日</time><span class="news-cat">親なきあとの準備</span></p>
+          <h3>「親なきあと」の備えは何から？本人の希望と暮らしを整理する相談メモ</h3>
+          <p class="news-summary">ご本人の希望と、お金・くらし・住まいの現状を整理するメモの作り方。公的な相談先と、最初に伝えたいことをご案内します。</p>
+        </a>
+      </li>
     </ul>
+    <!-- LATEST_NEWS_END -->
+    <p class="news-more"><a href="news/index.html">記事・お知らせをすべて見る →</a></p>
   </div>
 </section>
 

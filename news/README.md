@@ -95,4 +95,6 @@ $newsPython = 'C:\Users\Isamu\.cache\codex-runtimes\codex-primary-runtime\depend
 
 緑・生成りの配色、Noto Sans JP、最大幅880px、角丸カード、公開日・カテゴリ・見出し・概要・「記事を読む →」を維持。事務所名、リード文、情報確認の注意書き、相談案内、フッターをテンプレートに保持する。トップへは `../index.html`、相談先へは `../index.html#contact`。第1号の記事URLと表示内容は変更しない。
 
-トップの「親なきあととは」の直後に「記事・お知らせ」セクションと `news/index.html` への入口を実装済み。
+トップの「親なきあととは」の直後に「記事・お知らせ」セクションがあり、`<!-- LATEST_NEWS_START -->`〜`<!-- LATEST_NEWS_END -->` の間に最新のrelease記事3件のカード（公開日・カテゴリ・見出し・概要）を一覧生成プログラムが自動で書き込む。この範囲は直接編集しない。その下に `news/index.html` への「記事・お知らせをすべて見る →」ボタンを置く。
+
+記事ページの日付表示は、見出し下に公開日のみ（`data-date="published"`）、情報確認日（`data-date="verified"`）は末尾の注意書きの文中に置く。
