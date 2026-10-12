@@ -47,7 +47,8 @@ class RenderTests(unittest.TestCase):
         self.assertEqual(self.run_render(True), 0)
         self.assertEqual(self.run_render(), 0)
         self.assertEqual(self.snapshot(), generated)
-        self.assertEqual(self.target.read_bytes().count(b'data-article-id='), 1)
+        releases = sum(a['status'] == 'release' for a in self.data['articles'])
+        self.assertEqual(self.target.read_bytes().count(b'data-article-id='), releases)
 
     def test_invalid_inputs_keep_original(self):
         baseline = deepcopy(self.data)

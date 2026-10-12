@@ -18,6 +18,10 @@ from validate_news import Document, require
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = Path(__file__).with_name('news_index_template.html')
 MARKER = '<!-- ARTICLE_CARDS -->'
+# Top-page block (../index.html) showing the newest release articles.
+TOP_START = '<!-- LATEST_NEWS_START -->'
+TOP_END = '<!-- LATEST_NEWS_END -->'
+TOP_LIMIT = 3
 
 
 def unique_keys(pairs):
@@ -88,6 +92,52 @@ def render(articles):
     return template.replace(MARKER, '\n'.join(cards)).encode('utf-8')
 
 
+def jp_date(value):
+    day = date.fromisoformat(value)
+    return f'{day.year}年{day.month}月{day.day}日'
+
+
+def render_top(current, articles):
+    """Replace only the marked block of the top page; everything else stays byte-identical."""
+    text = current.decode('utf-8')
+    require(text.count(TOP_START) == 1 and text.count(TOP_END) == 1
+            and text.index(TOP_START) < text.index(TOP_END), 'top page must contain one latest-news block')
+    cards = []
+    for a in articles[:TOP_LIMIT]:
+        cards.append(f'''      <li data-article-id="{escape(a['id'], quote=True)}">
+        <a href="news/{escape(a['file'], quote=True)}">
+          <p class="news-meta"><time datetime="{escape(a['published_date'], quote=True)}">{jp_date(a['published_date'])}</time><span class="news-cat">{escape(a['category']['label'], quote=True)}</span></p>
+          <h3>{escape(a['title'], quote=True)}</h3>
+          <p class="news-summary">{escape(a['summary'], quote=True)}</p>
+        </a>
+      </li>''')
+    block = (TOP_START + '\n    <ul class="news-latest">\n' + '\n'.join(cards)
+             + ('\n' if cards else '') + '    </ul>\n    ' + TOP_END)
+    start, end = text.index(TOP_START), text.index(TOP_END) + len(TOP_END)
+    return (text[:start] + block + text[end:]).encode('utf-8')
+
+
+def validate_top(output, articles):
+    class MemoryHTML:
+        name = 'planned index.html'
+
+        def read_bytes(self):
+            return output
+
+    doc = Document(MemoryHTML())
+    cards = [n for n in doc.nodes if 'data-article-id' in n['attrs']]
+    expected = articles[:TOP_LIMIT]
+    require([n['attrs']['data-article-id'] for n in cards] == [a['id'] for a in expected],
+            'top page card membership/order mismatch')
+    for card, article in zip(cards, expected):
+        require(card['links'] == ['news/' + article['file']] and card['dates'] == [article['published_date']],
+                'top page card link/date mismatch')
+        require(all(value in card['text'] for value in
+                    (article['title'], article['summary'], article['category']['label'])),
+                'top page card text mismatch')
+    require('news/index.html' in doc.links, 'top page must link to the news listing')
+
+
 def validate_generated(path, articles):
     doc = Document(path)
     require(len(doc.select('main')) == 1 and len(doc.select('h1')) == 1, 'invalid page structure')
@@ -107,43 +157,56 @@ def validate_generated(path, articles):
 def run(root, check=False):
     root = root.resolve()
     articles = load_articles(root)
-    output = render(articles)
-    target = root / 'news' / 'index.html'
-    current = target.read_bytes() if target.exists() else b''
-    changed = current != output
+    # (target, planned bytes, validator); the top page is skipped only when absent (isolated tests).
+    plans = [(root / 'news' / 'index.html', render(articles), validate_generated)]
+    top = root / 'index.html'
+    if top.exists():
+        plans.append((top, render_top(top.read_bytes(), articles), validate_top))
+    changed = []
+    for target, output, _ in plans:
+        current = target.read_bytes() if target.exists() else b''
+        if current != output:
+            changed.append((target, current, output))
     if check:
         # Check mode creates no files, including temporary files.
         class MemoryHTML:
             name = 'planned news/index.html'
 
             def read_bytes(self):
-                return output
+                return plans[0][1]
 
         validate_generated(MemoryHTML(), articles)
+        for target, output, validator in plans[1:]:
+            validator(output, articles)
         print(f"PASS: JSON, article files and generated HTML; {len(articles)} release article(s).")
         print('DIFF: ' + ('yes' if changed else 'no') + '; no files changed.')
-        if changed:
+        for target, current, output in changed:
+            name = target.relative_to(root).as_posix()
             diff = ''.join(unified_diff(current.decode('utf-8').splitlines(True),
                                         output.decode('utf-8').splitlines(True),
-                                        fromfile='current news/index.html', tofile='generated news/index.html'))
+                                        fromfile='current ' + name, tofile='generated ' + name))
             print(diff or '(UTF-8/newline byte differences only)')
         return 1 if changed else 0
-    temporary = None
+    for target, output, validator in plans[1:]:
+        validator(output, articles)
+    temporaries = {}
     try:
-        # Same-directory temporary file permits atomic replacement on the same volume.
-        with tempfile.NamedTemporaryFile(mode='wb', dir=target.parent, prefix='.news-index-',
-                                         suffix='.tmp', delete=False) as stream:
-            temporary = Path(stream.name)
-            stream.write(output)
-            stream.flush()
-            os.fsync(stream.fileno())
-        validate_generated(temporary, articles)
-        if changed:
-            os.replace(temporary, target)
-            temporary = None
-        print(f"PASS: {len(articles)} release article(s); index {'updated' if changed else 'unchanged'}.")
+        for target, output, validator in plans:
+            # Same-directory temporary file permits atomic replacement on the same volume.
+            with tempfile.NamedTemporaryFile(mode='wb', dir=target.parent, prefix='.news-index-',
+                                             suffix='.tmp', delete=False) as stream:
+                temporaries[target] = Path(stream.name)
+                stream.write(output)
+                stream.flush()
+                os.fsync(stream.fileno())
+        validate_generated(temporaries[plans[0][0]], articles)
+        for target, current, output in changed:
+            os.replace(temporaries[target], target)
+            del temporaries[target]
+        names = ', '.join(t.relative_to(root).as_posix() for t, _, _ in changed) or 'none'
+        print(f"PASS: {len(articles)} release article(s); updated: {names}.")
     finally:
-        if temporary is not None:
+        for temporary in temporaries.values():
             temporary.unlink(missing_ok=True)
     return 0
 
