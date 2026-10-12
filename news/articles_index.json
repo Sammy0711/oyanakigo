@@ -290,6 +290,177 @@
           }
         ]
       }
+    },
+    {
+      "id": "seinen-kouken-minaoshi-2026",
+      "slug": "seinen-kouken-minaoshi-2026",
+      "file": "2026-10-12-seinen-kouken-minaoshi-2026.html",
+      "title": "成年後見制度の見直し（2026年改正）と、親なきあとの備えで今できること",
+      "summary": "成年後見制度（法定後見・任意後見）の仕組みと、2026年6月に成立した見直しの要点、施行までに確認したいことを法務省・裁判所の案内に基づいて説明します。",
+      "category": {
+        "id": "guardianship",
+        "label": "後見制度"
+      },
+      "published_date": "2026-10-12",
+      "updated_date": "2026-10-12",
+      "verified_date": "2026-10-12",
+      "status": "release",
+      "sources": [
+        {
+          "id": "moj-qa",
+          "publisher": "法務省",
+          "title": "Q1～Q2 成年後見制度について",
+          "url": "https://www.moj.go.jp/MINJI/a01.html",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "unknown",
+          "checked_on": "2026-10-12",
+          "locator": "成年後見制度の概要、法定後見制度と任意後見制度",
+          "verification": "サンドボックスから原ページへの直接接続ができないため、Web検索ツール（対象ドメイン限定）経由で資料本文の該当箇所を取得し、本文の主張と照合。法定後見の3類型、家庭裁判所による選任を確認。"
+        },
+        {
+          "id": "moj-nin",
+          "publisher": "法務省",
+          "title": "Q16～Q20 任意後見制度について",
+          "url": "https://www.moj.go.jp/MINJI/a03.html",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "unknown",
+          "checked_on": "2026-10-12",
+          "locator": "任意後見制度の概要、任意後見監督人の選任と契約の効力",
+          "verification": "サンドボックスから原ページへの直接接続ができないため、Web検索ツール（対象ドメイン限定）経由で資料本文の該当箇所を取得し、本文の主張と照合。公正証書による契約、任意後見監督人の選任時から効力が生じることを確認。"
+        },
+        {
+          "id": "moj-reform",
+          "publisher": "法務省",
+          "title": "「民法等の一部を改正する法律」（成年後見及び遺言の制度の見直し）について",
+          "url": "https://www.moj.go.jp/MINJI/minji07_00410.html",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "unknown",
+          "checked_on": "2026-10-12",
+          "locator": "成立・公布、改正の概要（補助への一元化）、施行期日、経過措置",
+          "verification": "サンドボックスから原ページへの直接接続ができないため、Web検索ツール（対象ドメイン限定）経由で資料本文の該当箇所を取得し、本文の主張と照合。令和8年6月17日成立・同月24日公布（令和8年法律第45号）、後見・保佐を廃止し補助に一元化、成年後見制度部分の施行は公布から2年6月を超えない範囲で政令で定める日、経過措置の存在を確認。施行日を定める政令は確認できず。"
+        },
+        {
+          "id": "osaka-court",
+          "publisher": "大阪家庭裁判所",
+          "title": "成年後見制度（後見・保佐・補助）",
+          "url": "https://www.courts.go.jp/osaka/saiban/seinenkouken/index.html",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "unknown",
+          "checked_on": "2026-10-12",
+          "locator": "申立て先の裁判所（管轄）、申立書の書式（後見ポータルサイト）",
+          "verification": "サンドボックスから原ページへの直接接続ができないため、Web検索ツール（対象ドメイン限定）経由で資料本文の該当箇所を取得し、本文の主張と照合。申立先は本人が現在住んでいる住所地（入所施設・入院先を含み住民票上の住所とは限らない）で決まること、書式が後見ポータルサイトに掲載されていることを確認。"
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim-c1",
+          "statement": "成年後見制度は判断能力が不十分な方を保護・支援する制度で、法定後見と任意後見に分かれ、法定後見は後見・保佐・補助の3類型で家庭裁判所が支援者を選ぶ。",
+          "source_ids": [
+            "moj-qa"
+          ]
+        },
+        {
+          "id": "claim-c2",
+          "statement": "任意後見は判断能力があるうちに公正証書で契約し、家庭裁判所が任意後見監督人を選任した時から効力が生じる。",
+          "source_ids": [
+            "moj-nin"
+          ]
+        },
+        {
+          "id": "claim-c3",
+          "statement": "2026年6月17日に民法等の一部を改正する法律（令和8年法律第45号）が成立し同月24日公布。後見・保佐を廃止し補助に一元化することが柱。",
+          "source_ids": [
+            "moj-reform"
+          ]
+        },
+        {
+          "id": "claim-c4",
+          "statement": "改正法には、施行時に後見・保佐・補助を利用している方の扱いを定める経過措置がある。",
+          "source_ids": [
+            "moj-reform"
+          ]
+        },
+        {
+          "id": "claim-c5",
+          "statement": "成年後見制度部分の施行日は公布から2年6月を超えない範囲で政令で定める日で、施行までは現行制度が適用される。",
+          "source_ids": [
+            "moj-reform"
+          ]
+        },
+        {
+          "id": "claim-c6",
+          "statement": "大阪家庭裁判所の案内では、申立先は本人が現在住んでいる住所地で決まり、書式は後見ポータルサイトに掲載されている。",
+          "source_ids": [
+            "osaka-court"
+          ]
+        }
+      ],
+      "editorial_proposals": "「親なきあとの備えとして、今できること」の箇条書きは、公的事実ではなく当事務所からの編集上の提案であることを本文に明記。相談欄は家庭裁判所への申立てと、行政書士が扱える任意後見契約書等の文案作成を区別した案内。",
+      "review": {
+        "reviewed_on": "2026-10-12",
+        "reviewer": "Claude Code（AIによる作成・自己審査）＋Python整合性検証。人間の監修や公開承認を意味しない。出典は検索ツール経由で確認しており、原ページの目視再確認を推奨。",
+        "article_sha256": "1c046ce861357f9c69eabbd994663e733be1d6097738dca892193976ec64841c",
+        "gates": [
+          {
+            "id": 1,
+            "result": "pass",
+            "evidence": "法務省・大阪家庭裁判所の4資料の本文該当箇所を検索ツール経由で取得して確認。原ページへの直接接続はできなかったため、公開前の目視再確認を推奨事項として記録。"
+          },
+          {
+            "id": 2,
+            "result": "pass",
+            "evidence": "出典は法務省3件・大阪家庭裁判所1件の一次資料のみ。"
+          },
+          {
+            "id": 3,
+            "result": "pass",
+            "evidence": "6件の主張それぞれに対応する資料と参照箇所を記録し、本文の段落内で出典へリンク。確認できなかった課題認識の記述は削除した。"
+          },
+          {
+            "id": 4,
+            "result": "pass",
+            "evidence": "政令による施行日は確認できなかったため推測せず未確認と明記。提案部分は編集上の提案と明示。"
+          },
+          {
+            "id": 5,
+            "result": "pass",
+            "evidence": "「必ず」「誰でも」等の保証表現を用いず、施行日・運用は最新の案内で確認するよう案内。"
+          },
+          {
+            "id": 6,
+            "result": "pass",
+            "evidence": "成立日・公布日・施行日（政令で定める日）・情報確認日を区別。資料の日付が不明なものはnullとした。"
+          },
+          {
+            "id": 7,
+            "result": "pass",
+            "evidence": "改正法の成立・公布と施行を区別し、施行までは現行制度が適用されると明記。管轄の案内は大阪家庭裁判所のものと限定。"
+          },
+          {
+            "id": 8,
+            "result": "pass",
+            "evidence": "申立書類の作成は司法書士・弁護士の業務と明記し、当事務所は任意後見契約書等の文案作成に限定。"
+          },
+          {
+            "id": 9,
+            "result": "pass",
+            "evidence": "目次付きで、制度の仕組み→改正→施行時期→今できること、の順に読者の次の行動へつなげる構成。"
+          },
+          {
+            "id": 10,
+            "result": "pass",
+            "evidence": "既存2記事（相談メモ・日常生活自立支援事業）とservice-koken.htmlに、成年後見制度の2026年改正を扱う内容はない。validate_news.pyの本文重複検査を実施。"
+          }
+        ]
+      }
     }
   ]
 }
