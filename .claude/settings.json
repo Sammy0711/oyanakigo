@@ -1,0 +1,20 @@
+{
+    "permissions": {
+        "deny": [
+            "Read(./.env)",
+            "Read(./.env.*)",
+            "Read(./**/*.key)",
+            "Read(./**/*.pem)",
+            "Bash(cat .env:*)",
+            "Bash(git push origin main:*)",
+            "Bash(git push -u origin main:*)",
+            "Bash(git push --force:*)",
+            "Bash(git push -f:*)",
+            "Bash(git commit --no-verify:*)",
+            "Bash(git reset --hard:*)",
+            "Bash(git clean:*)",
+            "Bash(rm -rf:*)",
+            "Bash(rm -r:*)"
+        ]
+    }
+}

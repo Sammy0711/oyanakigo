@@ -40,7 +40,7 @@
 2. 既存記事（`news/*.html`）の構成・CSSをそのまま使って記事を作る。
    - 見出し下の日付は**公開日のみ**（`data-date="published"`）。情報確認日（`data-date="verified"`）は末尾の「ご利用にあたって」の文中に置く。
 3. `news/articles_index.json` に記事データ（sources・claims・review）を追加する。記事HTMLを変えたら `article_sha256` を必ず更新する。
-4. 次を実行し、すべて合格させる。
+4. `publish-check` スキル（`.claude/skills/publish-check/`）の手順で検証する。中身は次のとおり。
    ```
    python3 -B scripts/render_news_index.py
    python3 -B scripts/render_news_index.py --check
@@ -48,7 +48,24 @@
    python3 -B scripts/test_render_news_index.py
    ```
 5. ローカルで表示確認（`python3 -m http.server` ＋ ヘッドレス Chromium でパソコン幅と約500px幅のスクリーンショット）。
-6. PR を作成してマージ（第1章の基本ルールどおり）。
+6. `law-verifier`（出典照合）と `logic-checker`（独立レビュー）を通し、blocking をゼロにする。
+7. PR を作成してマージ（第1章の基本ルールどおり）。
+
+### Claude 用のチェック道具（`.claude/`）
+
+mayuha-monorepo の仕組みを oyanakigo 向けに移植したもの（2026-10-13）。書く役とチェックする役を分けるのが目的。
+
+| 道具 | 種類 | 使う場面 |
+|---|---|---|
+| `logic-checker` | エージェント（Opus） | 記事・ページ・返信案のコミット前。矛盾、出典のない断定、業務範囲外、過度な表現、10ゲート違反を指摘（編集はしない） |
+| `law-verifier` | エージェント（Haiku） | 制度・金額・改正日を一次情報と照合し、主張ごとに confirmed / outdated / unverified を返す |
+| `deep-reasoner` | エージェント（Opus） | 後見・信託・遺言・共済など複数制度が交わる判断、資料の食い違い、手続の順番 |
+| `publish-check` | スキル | 公開前ゲート一式（機械検証 → law-verifier → logic-checker → 表示確認 → PR・マージ） |
+| `/article-new` | コマンド | 記事1本を追加・更新する一連の手順 |
+| `/soudan-reply` | コマンド | 相談への返信案（`drafts/` に保存、コミット・送信はしない） |
+
+- `.claude/settings.json` で main への直接プッシュ・強制プッシュ・`rm -rf` などを禁止している。
+- エージェントはセッション開始時に読み込まれるため、追加・変更した回の会話では新しいセッションから使える。
 
 ## 4. 内容面の注意（業務範囲）
 
@@ -84,6 +101,8 @@
 4. この更新は、その作業のプルリクエストに一緒に含めてマージする。
 
 ## 8. 作業履歴（新しいものを上に、1行ずつ）
+
+- 2026-10-13：mayuha-monorepo（claude/intelligent-carson-oq5zfy）の logic-checker 等を oyanakigo 版として `.claude/` に導入（エージェント3つ・publish-check・コマンド2つ・settings.json）。既存記事での試行で READY・minor 3件（関連ページの文字リンク等）。
 
 - 2026-10-12：記事「障害者扶養共済制度（しょうがい共済）とは？」を公開（カテゴリ「お金の備え」を新設。出典は厚労省・WAM・大阪市・国税庁）。
 - 2026-10-12：このCLAUDE.mdを作成（会話をまたいでルールと好みを引き継ぐため）。
