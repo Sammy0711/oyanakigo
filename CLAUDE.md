@@ -50,7 +50,7 @@
    ```
 5. ローカルで表示確認（`python3 -m http.server` ＋ ヘッドレス Chromium でパソコン幅と約500px幅のスクリーンショット）。
 6. `law-verifier`（出典照合）と `logic-checker`（独立レビュー）を通し、blocking をゼロにする。
-7. PR を作成してマージ（第1章の基本ルールどおり）。
+7. PR を作成してマージ（第1章の基本ルールどおり）。PR では GitHub Actions「news-check」（`.github/workflows/news-check.yml`）が手順4の検証を自動で実行する。**news-check が緑（合格）になってからマージする。** 赤（不合格）ならログを読んで直し、再プッシュする。
 
 ### Claude 用のチェック道具（`.claude/`）
 
@@ -104,9 +104,8 @@ mayuha-monorepo の仕組みを oyanakigo 向けに移植したもの（2026-10-
 ## 8. 作業履歴（新しいものを上に、1行ずつ）
 
 - 2026-10-13：全4記事の「関連ページ」リンクを丸ボタン風に変更（スマホでは縦並び）。本文は変更なし、SHA-256 のみ更新。
-
+- 2026-10-13：PR ごとに記事基盤の機械検証（render --check・validate・テスト）を自動実行する GitHub Actions「news-check」を追加。マージ前の安全装置。
 - 2026-10-13：mayuha-monorepo（claude/intelligent-carson-oq5zfy）の logic-checker 等を oyanakigo 版として `.claude/` に導入（エージェント3つ・publish-check・コマンド2つ・settings.json）。既存記事での試行で READY・minor 3件（関連ページの文字リンク等）。
-
 - 2026-10-12：記事「障害者扶養共済制度（しょうがい共済）とは？」を公開（カテゴリ「お金の備え」を新設。出典は厚労省・WAM・大阪市・国税庁）。
 - 2026-10-12：このCLAUDE.mdを作成（会話をまたいでルールと好みを引き継ぐため）。
 - 2026-10-12：トップに最新記事カード3件を自動表示。記事の日付表示を公開日のみに整理（PR #2）。
