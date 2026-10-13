@@ -1,0 +1,23 @@
+name: news-check
+
+# PR ごとに記事基盤の機械検証を実行する。
+# Claude がマージまで行う運用のため、ここが不合格ならマージしない。
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  news-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 一覧HTMLが articles_index.json と一致しているか（生成漏れの検出）
+        run: python -B scripts/render_news_index.py --check
+      - name: 記事の構造・出典・レビュー記録・SHA-256 の検証
+        run: python -B scripts/validate_news.py
+      - name: 一覧生成スクリプトのテスト
+        run: python -B scripts/test_render_news_index.py
