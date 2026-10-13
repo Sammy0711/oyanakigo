@@ -38,8 +38,9 @@
 
 1. `news/README.md` を読み、10品質ゲートに沿って作業する。
 2. 既存記事（`news/*.html`）の構成・CSSをそのまま使って記事を作る。
+   - 記事末尾の「関連ページ」（`nav.page-links`）は枠線つきの丸ボタン（スマホ幅では縦並び・全幅）。CSS は全記事で同じものを使う。
    - 見出し下の日付は**公開日のみ**（`data-date="published"`）。情報確認日（`data-date="verified"`）は末尾の「ご利用にあたって」の文中に置く。
-3. `news/articles_index.json` に記事データ（sources・claims・review）を追加する。記事HTMLを変えたら `article_sha256` を必ず更新する。
+3. `news/articles_index.json` に記事データ（sources・claims・review）を追加する。記事HTMLを変えたら `article_sha256` を必ず更新する（見た目だけの変更でも必要。`updated_date` は `verified_date` を超えると検証が落ちるので、本文を再確認しない限り動かさない）。
 4. `publish-check` スキル（`.claude/skills/publish-check/`）の手順で検証する。中身は次のとおり。
    ```
    python3 -B scripts/render_news_index.py
@@ -101,6 +102,8 @@ mayuha-monorepo の仕組みを oyanakigo 向けに移植したもの（2026-10-
 4. この更新は、その作業のプルリクエストに一緒に含めてマージする。
 
 ## 8. 作業履歴（新しいものを上に、1行ずつ）
+
+- 2026-10-13：全4記事の「関連ページ」リンクを丸ボタン風に変更（スマホでは縦並び）。本文は変更なし、SHA-256 のみ更新。
 
 - 2026-10-13：mayuha-monorepo（claude/intelligent-carson-oq5zfy）の logic-checker 等を oyanakigo 版として `.claude/` に導入（エージェント3つ・publish-check・コマンド2つ・settings.json）。既存記事での試行で READY・minor 3件（関連ページの文字リンク等）。
 
