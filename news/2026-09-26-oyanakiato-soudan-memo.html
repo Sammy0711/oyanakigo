@@ -39,7 +39,10 @@ h1{font-size:1.8rem;line-height:1.65;margin:8px 0 18px;}
 .checklist li{margin-bottom:10px;}
 .source-detail{display:block;font-size:.85rem;color:var(--soft);margin-top:6px;}
 .sources h2{margin:0 0 12px;}
-.page-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px;}
+.page-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;padding-top:26px;border-top:1px solid var(--line);}
+.page-links a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 22px;background:var(--card);border:1.5px solid var(--green);border-radius:40px;color:var(--green-d);font-weight:700;font-size:.95rem;line-height:1.5;text-align:center;text-decoration:none;transition:background .15s,color .15s;}
+.page-links a:hover{background:var(--green);color:#fff;}
+@media(max-width:600px){.page-links{flex-direction:column;}.page-links a{width:100%;}}
 .contact{background:#eef4ef;padding:40px 0;text-align:center;}
 .contact h2{font-size:1.3rem;margin-bottom:14px;}
 .contact .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;max-width:600px;margin:auto;}

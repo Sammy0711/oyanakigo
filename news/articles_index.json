@@ -84,7 +84,7 @@
       "review": {
         "reviewed_on": "2026-09-26",
         "reviewer": "Codex（一次情報との照合。事務所代表による監修を意味しない）",
-        "article_sha256": "502fed9084ee84214e3cca5e2d4687e54616b69abd2bc3dbce26354a7446f7bf",
+        "article_sha256": "b529c27af34b5d7fc398704b9022cb6f460d72de4e3ef8e34c49c3877498a2e4",
         "gates": [
           {
             "id": 1,
@@ -236,7 +236,7 @@
       "review": {
         "reviewed_on": "2026-09-26",
         "reviewer": "Codexの別セッション審査＋Python整合性検証。人間の監修や公開承認を意味しない。",
-        "article_sha256": "c0a6ff1d152ed3ca92b1a2e876f94b717f4761eaf0c599f0fdb97638f55d01b3",
+        "article_sha256": "87153dc10dcf26f252997d3cdbdfec2bf270295c2945adc4ed74b446b06d28d8",
         "gates": [
           {
             "id": 1,
@@ -407,7 +407,7 @@
       "review": {
         "reviewed_on": "2026-10-12",
         "reviewer": "Claude Code（AIによる作成・自己審査）＋Python整合性検証。人間の監修や公開承認を意味しない。出典は検索ツール経由で確認しており、原ページの目視再確認を推奨。",
-        "article_sha256": "6ddceb3f325062c823ffc714bf390790032256bc880be66cb422210daabba904",
+        "article_sha256": "531b4bd38638cba324bd1d9660084f8b6475c8f7651ba1fbe5106e2bc2ea4a14",
         "gates": [
           {
             "id": 1,
@@ -612,7 +612,7 @@
       "review": {
         "reviewed_on": "2026-10-12",
         "reviewer": "Claude Code（AIによる作成・自己審査）＋Python整合性検証。人間の監修や公開承認を意味しない。出典は検索ツール経由で確認しており、原ページの目視再確認を推奨。",
-        "article_sha256": "834539ac0089f0893cc1c039c70e3ae23dec3d071116aa1e875a8e23bcbf27a5",
+        "article_sha256": "5fb60e4bc506711d2ac5e311a085b909f1d8c8610193656c60dd09dd572a1a32",
         "gates": [
           {
             "id": 1,
