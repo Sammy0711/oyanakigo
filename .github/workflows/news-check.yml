@@ -10,6 +10,10 @@ on:
 jobs:
   news-check:
     runs-on: ubuntu-latest
+    env:
+      # 記事の公開日は日本時間で付けるため、「未来の日付」の判定も日本時間で行う
+      # （GitHub の実行環境は UTC のため、日本時間の早朝に作った記事が不合格になるのを防ぐ）。
+      TZ: Asia/Tokyo
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
