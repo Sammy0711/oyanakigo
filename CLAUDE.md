@@ -79,8 +79,8 @@ mayuha-monorepo の仕組みを oyanakigo 向けに移植したもの（2026-10-
 
 ## 5. 作業環境の制約（クラウドで作業する場合）
 
-- この環境からは moj.go.jp・mhlw.go.jp・courts.go.jp・oyanakigo.com・*.pages.dev に直接つながらない（curl・WebFetch とも不可）。
-  - 出典確認は WebSearch（`allowed_domains` で公的機関ドメインに限定）で本文の該当箇所を取得し、その方法をレビュー記録に正直に書く。
+- この環境からは moj.go.jp・mhlw.go.jp・courts.go.jp・oyanakigo.com・*.pages.dev に直接つながらないことが多い（curl 不可。WebFetch は 2026-10-27 のスケジュール実行では moj.go.jp・houmukyoku.moj.go.jp に届いたが、PDF は要約のみで表が崩れることがある）。
+  - 出典確認は WebFetch か WebSearch（`allowed_domains` で公的機関ドメインに限定）で本文の該当箇所を取得し、どちらを使ったか・要約経由かをレビュー記録に正直に書く。
   - 公開後の表示は Claude からは見られないため、依頼主に確認してもらう点を報告に含める。
 - GitHub への書き込みには、Claude GitHub App の Repository access に `oyanakigo` が含まれている必要がある（2026-10-12 に設定済み）。プッシュが 403 になったら、まずこの設定を疑う。
 
@@ -103,6 +103,7 @@ mayuha-monorepo の仕組みを oyanakigo 向けに移植したもの（2026-10-
 
 ## 8. 作業履歴（新しいものを上に、1行ずつ）
 
+- 2026-10-27：記事「遺言制度の見直し（2026年改正）：法務局で預かる「保管証書遺言」の新設と、親なきあとの遺言で今できること」の下書き PR を作成（スケジュール実行、マージは依頼主）。
 - 2026-10-13：全4記事の「関連ページ」リンクを丸ボタン風に変更（スマホでは縦並び）。本文は変更なし、SHA-256 のみ更新。
 - 2026-10-13：PR ごとに記事基盤の機械検証（render --check・validate・テスト）を自動実行する GitHub Actions「news-check」を追加。マージ前の安全装置。
 - 2026-10-13：mayuha-monorepo（claude/intelligent-carson-oq5zfy）の logic-checker 等を oyanakigo 版として `.claude/` に導入（エージェント3つ・publish-check・コマンド2つ・settings.json）。既存記事での試行で READY・minor 3件（関連ページの文字リンク等）。
