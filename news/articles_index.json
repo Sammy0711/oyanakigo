@@ -2942,7 +2942,7 @@
       "review": {
         "reviewed_on": "2026-11-15",
         "reviewer": "Claude（AI、依頼主の指示による修正・自己審査）＋law-verifier（法令・所得制限表の照合）＋logic-checker（独立レビュー2回）＋Python整合性検証（render --check・validate・テスト、TZ=Asia/Tokyo）。人間の監修や公開承認を意味しない。law-verifier は WebFetch が mhlw.go.jp・city.osaka.lg.jp に届かず、施行令第10条・第11条と民法第877条を confirmed、所得制限表・法第26条の2・省令は unverified（取得不能）としたが、これらはメインセッションが curl・e-Gov 法令 API で原文を取得して直接確認済み（所得制限表は厚生労働省と大阪市の2資料で全24の数値が一致）。きょうだいの所得が見られるという当てはめは推論との指摘を受け、厚生労働省の記述と民法第877条の事実のみを書く形に改めた。logic-checker 2回目の blocking（出典欄の「原ページでご確認ください」と古い確認記録）と major（引用の出典、claim-c8 の版、editorial_proposals の古い記述）はすべて反映。 logic-checker 3回目は READY（blocking・major 0件、minor も反映）。",
-        "article_sha256": "b94d0105e7252da8e12f9389b7f9fba9ae10819861ce5e44577e18dff4572930",
+        "article_sha256": "6fb28fd235809144c197da9d2b899f572b7c7bcd327ae8799409fcc374c028a0",
         "gates": [
           {
             "id": 1,
