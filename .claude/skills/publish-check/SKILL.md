@@ -17,7 +17,7 @@ description: oyanakigo.com の記事（news/）やページ（index.html、servi
    python3 -B scripts/test_render_news_index.py
    ```
    FAIL が出たら直して再実行する。記事HTMLを直したら `news/articles_index.json` の `article_sha256` を更新する（UTF-8、CRLF→LF 正規化後の SHA-256）。
-2. **出典照合**：原稿が制度・手続・金額・期間・改正日を述べるときは `law-verifier` エージェントに原稿のパスを渡す。`outdated` / `unverified` の行は、直すか「未確認」「窓口で確認」と弱める。確認方法（WebFetch か、`allowed_domains` 付き WebSearch か）を `review` の記録に正直に書く。
+2. **出典照合**：原稿が制度・手続・金額・期間・改正日を述べるときは `law-verifier` エージェントに原稿のパスを渡す。`outdated` / `unverified` の行は、一次情報（curl・e-Gov 法令 API・別資料）で取り直して確認するか、その記述を記事から外す。「未確認」「〜でご確認ください（発表・原文・資料）」「今後の公表を待つ」「記載していません／記載がありません」は使わない（2026-11-15 依頼主の指示。`validate_news.py` が機械的に不合格にする）。確認方法（WebFetch か、`allowed_domains` 付き WebSearch か）を `review` の記録に正直に書く。
 3. **独立レビュー**：新規・書き直しのページごとに `logic-checker` エージェントを実行する。`REVISE` なら blocking を全部直して手順1〜3をやり直す。major も、理由を明記できない限り反映する。複数の制度が交わる・資料が食い違うなど判断が重いときは、先に `deep-reasoner` で整理する。
 4. **表示確認**：`python3 -m http.server` とヘッドレス Chromium で、パソコン幅と約500px幅のスクリーンショットを撮り、見出し・目次・出典リンク・相談導線・カードの見た目を確認する。
 5. **コミット〜マージ**：手順1〜4が合格してから。作業ブランチ（main 以外）にコミットし、プッシュ → PR 作成 → マージまで行う（CLAUDE.md 第1章）。依頼主が「確認してから」「マージしないで」と言った場合と、ゲート不合格の場合はマージしない。

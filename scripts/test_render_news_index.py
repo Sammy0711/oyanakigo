@@ -12,6 +12,7 @@ from unittest.mock import patch
 
 sys.dont_write_bytecode = True
 import render_news_index as renderer
+import validate_news
 
 
 class RenderTests(unittest.TestCase):
@@ -113,6 +114,19 @@ class RenderTests(unittest.TestCase):
                     with self.assertRaises(type(exception)):
                         self.run_render()
                 self.assertEqual(self.snapshot(), before)
+
+
+class BannedWordingTests(unittest.TestCase):
+    def test_detects_phrases_that_leave_checking_to_readers(self):
+        for phrase in ['大阪での運用は未確認です。', '正式な内容は厚生労働省の発表でご確認ください。',
+                       '今後の公表を待つ必要があります。', '資料には記載がありません。',
+                       'この記事には記載していません。', '本記事では確認できていません。']:
+            self.assertTrue(validate_news.banned_wording(f'<article><p>{phrase}</p></article>'), phrase)
+
+    def test_allows_guidance_and_ignores_source_list(self):
+        html = ('<article><p>申請はお住まいの区の保健福祉センターで行います。</p>'
+                '<section class="sources"><ol><li>この資料には公布日の記載はありません。</li></ol></section></article>')
+        self.assertEqual(validate_news.banned_wording(html), [])
 
 
 if __name__ == '__main__':
