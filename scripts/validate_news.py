@@ -69,6 +69,33 @@ def valid_date(value):
     return result
 
 
+# 読者に「確認できなかった」「自分で調べて」と伝える表現の禁止（2026-11-15 依頼主の指示）。
+# この日以降に更新（updated_date）した記事は、本文（出典一覧を除く）にこれらの表現があると不合格。
+# 確認できない事項は、一次情報を取り直して確認するか、記事から外す。古い記事は更新時に直す。
+BANNED_WORDING_SINCE = date(2026, 11, 15)
+BANNED_WORDING = [
+    (r'未確認', '「未確認」'),
+    (r'確認できて(い)?ません|確認できませんでした|確認できなかった', '「確認できていません」等'),
+    (r'読み取れ(ませ|なかっ|ず)', '「読み取れなかった」等'),
+    (r'(発表|公表|原文|最新情報|最新の情報|ホームページ|ウェブサイト|資料|通知|告示)で(ご)?確認(ください|して|を)', '読者に一次情報の確認を求める表現'),
+    (r'(公表|発表|決定)を待つ|待つ必要', '「今後の公表を待つ」等'),
+    (r'記載(が|は)ありません|記載していません|記載されていません|記載はありません', '「記載がありません／記載していません」'),
+    (r'わかりません|分かりません|不明です', '「分かりません／不明です」'),
+]
+
+
+def banned_wording(raw_html):
+    """出典一覧を除いた記事本文から、禁止表現を (表示名, 前後の文) のリストで返す。"""
+    text = re.sub(r'(?s)<section class="sources">.*?</section>', '', raw_html)
+    text = re.sub(r'(?s)<(script|style|head)\b.*?</\1>', '', text)
+    text = re.sub(r'<[^>]+>', '', text)
+    found = []
+    for pattern, label in BANNED_WORDING:
+        for match in re.finditer(pattern, text):
+            found.append((label, text[max(0, match.start() - 25):match.end() + 15].replace('\n', ' ')))
+    return found
+
+
 def validate(root):
     root = root.resolve()
     news = root / 'news'
@@ -109,6 +136,10 @@ def validate(root):
         doc = docs[(news / article['file']).resolve()]
         require(sha256(doc.raw.replace(b'\r\n', b'\n')).hexdigest() == review['article_sha256'],
                 f'{aid}: HTML changed since review')
+        if updated >= BANNED_WORDING_SINCE:
+            hits = banned_wording(doc.raw.decode('utf-8'))
+            require(not hits, f'{aid}: 読者に確認を委ねる表現が残っています（一次情報で確認して書き直すか、記述を外す）: '
+                    + ' / '.join(f'{label}「…{context}…」' for label, context in hits[:5]))
         require(len(doc.select('h1')) == 1 and doc.select('h1')[0]['text'] == article['title'],
                 f'{aid}: title mismatch')
         require(any(node['attrs'].get('class') == 'category' and node['text'] == article['category']['label']
