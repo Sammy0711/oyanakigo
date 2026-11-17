@@ -3811,6 +3811,290 @@
           }
         ]
       }
+    },
+    {
+      "id": "shuurou-sentaku-shien",
+      "slug": "shuurou-sentaku-shien",
+      "file": "2026-11-18-shuurou-sentaku-shien.html",
+      "title": "「就労選択支援」とは？2025年10月に始まった、働き方を選ぶ前の「アセスメント」――就労継続支援B型を使う前に必要になったこと、特別支援学校在学中の利用と大阪市での流れ",
+      "summary": "2025年10月1日に始まった障害福祉サービス「就労選択支援」について、作業体験によるアセスメントとケース会議の内容、対象者と就労継続支援B型を新たに使うときの原則と例外（50歳以上・障害基礎年金1級など）、原則1か月の利用期間、特別支援学校在学中の利用、大阪市での申請の流れと事業所数を、法令と厚生労働省・大阪市の資料に基づいて整理します。",
+      "category": {
+        "id": "life-support",
+        "label": "暮らしの支援"
+      },
+      "published_date": "2026-11-18",
+      "updated_date": "2026-11-18",
+      "verified_date": "2026-11-18",
+      "status": "release",
+      "sources": [
+        {
+          "id": "egov-sougou-shien",
+          "publisher": "e-Gov 法令検索（デジタル庁）",
+          "title": "障害者の日常生活及び社会生活を総合的に支援するための法律（平成17年法律第123号）",
+          "url": "https://laws.e-gov.go.jp/api/1/lawdata/417AC0000000123",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "current-law",
+          "checked_on": "2026-11-18",
+          "locator": "第5条第13項（就労選択支援の定義）、第28条第2項第2号（訓練等給付費の対象としての就労選択支援）、第29条第3項（給付費の額と利用者負担の上限〈費用の百分の十〉）",
+          "verification": "2026年11月18日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。e-Gov 法令 API の XML から条文を抽出して確認。"
+        },
+        {
+          "id": "mhlw-jisshi",
+          "publisher": "厚生労働省",
+          "title": "就労選択支援の実施について（令和7年3月31日障障発0331第3号、最終改正 令和7年9月30日障障発0930第3号）",
+          "url": "https://www.mhlw.go.jp/content/12200000/001571813.pdf",
+          "type": "primary",
+          "document_date": "2025-09-30",
+          "date_precision": "day",
+          "date_kind": "revised",
+          "checked_on": "2026-11-18",
+          "locator": "前文（令和4年法律第104号の施行に伴い令和7年10月から実施、令和9年4月以降のA型・就労移行支援の扱いは予定で改めて示す）、記1（2）対象者・B型の利用対象と例外・近隣に事業所がない場合等・本人の希望で利用できる者、記4（1）支給決定期間（原則1か月、例外事由で一度のみ再度1か月、当初から2か月）、記5（6）支給決定更新時などの情報提供",
+          "verification": "2026年11月18日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。PDF は pdftotext -layout でテキスト化し、新旧対照表の後に付いた改正後の全文で確認。"
+        },
+        {
+          "id": "mhlw-gakkou",
+          "publisher": "文部科学省・厚生労働省",
+          "title": "特別支援学校等における就労選択支援の取扱いについて（令和7年5月15日 7初特支第1号・障障発0515第2号）",
+          "url": "https://www.mhlw.go.jp/content/12200000/001488515.pdf",
+          "type": "primary",
+          "document_date": "2025-05-15",
+          "date_precision": "day",
+          "date_kind": "issued",
+          "checked_on": "2026-11-18",
+          "locator": "記1（2）就労選択支援の具体的な内容（基本的なプロセス、アセスメントの項目、ケース会議）、記1（4）実施期間（アセスメント2週間程度、5日間程度も可）、記1（5）実施時期（18歳以上向け、特別支援学校等の1年次から・複数回、15歳以上18歳未満は児童相談所長の通知）、記2（2）長期休業中の集中、記2（5）出欠の取扱い",
+          "verification": "2026年11月18日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。PDF は pdftotext -layout でテキスト化して確認。"
+        },
+        {
+          "id": "osaka-jisshi",
+          "publisher": "大阪市福祉局障がい者施策部",
+          "title": "事務連絡「就労選択支援の実施について」（令和7年8月26日）",
+          "url": "https://www.city.osaka.lg.jp/fukushi/cmsfiles/contents/0000652/652732/jimurenraku1006.pdf",
+          "type": "primary",
+          "document_date": "2025-08-26",
+          "date_precision": "day",
+          "date_kind": "issued",
+          "checked_on": "2026-11-18",
+          "locator": "2 基本方針（本人や家族・学校・支援機関等を交えたケース会議、就労の可否判断や振り分けではない）、3 期待する効果（A型・B型利用開始後も本人の希望で利用可能）、4 対象者（サービス等利用計画案、セルフプラン、指定相談支援事業所の利用勧奨）、6 支援実施内容（1か月の利用日数は暦日数から8日を控除した日数が上限）",
+          "verification": "2026年11月18日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。PDF は pdftotext -layout でテキスト化して確認。"
+        },
+        {
+          "id": "mhlw-page",
+          "publisher": "厚生労働省",
+          "title": "就労選択支援について",
+          "url": "https://www.mhlw.go.jp/stf/newpage_56733.html",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "webpage",
+          "checked_on": "2026-11-18",
+          "locator": "3 就労選択支援に係る通知・実施マニュアル・Q&A（【通知】就労選択支援の実施について〈令和7年9月30日改正〉が掲載されていること）、2 就労選択支援指定状況（事業所数〈令和8年6月末日現在〉の掲載）",
+          "verification": "2026年11月18日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。"
+        },
+        {
+          "id": "osaka-gakkou",
+          "publisher": "大阪市福祉局障がい者施策部",
+          "title": "事務連絡「支援学校高等部等卒業（予定）者における就労選択支援の利用に向けた取扱い等について」（令和7年8月26日）",
+          "url": "https://www.city.osaka.lg.jp/fukushi/cmsfiles/contents/0000652/652732/jimurenraku10062.pdf",
+          "type": "primary",
+          "document_date": "2025-08-26",
+          "date_precision": "day",
+          "date_kind": "issued",
+          "checked_on": "2026-11-18",
+          "locator": "前文（卒業後すぐB型を希望する場合は原則在学中にアセスメント）、1 B型利用までの流れ（8段階、区保健福祉センターによる支給決定）、2 利用が困難な場合（3年次の待機期間の特例）、3 実施期間（連続5日間程度の特例）、4 留意事項（1・2年次のアセスメント結果で卒業年次に申請可）",
+          "verification": "2026年11月18日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。PDF は pdftotext -layout でテキスト化して確認。"
+        },
+        {
+          "id": "mhlw-jigyousho-su",
+          "publisher": "厚生労働省",
+          "title": "就労選択支援事業所数（令和8年6月末日現在）",
+          "url": "https://www.mhlw.go.jp/content/12200000/001739499.pdf",
+          "type": "primary",
+          "document_date": "2026-06-30",
+          "date_precision": "day",
+          "date_kind": "as-of",
+          "checked_on": "2026-11-18",
+          "locator": "指定権者別の事業所数（合計965、大阪市34、大阪府30、堺市5、府内の中核市は市ごと）",
+          "verification": "2026年11月18日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。PDF は pdftotext -layout でテキスト化して確認。"
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim-c1",
+          "statement": "就労選択支援は障害者総合支援法第5条第13項に定める障害福祉サービスで、短期間の生産活動等を通じて就労に関する適性等の評価と意向・配慮等の整理を行い、関係事業者等との連絡調整を行う。",
+          "source_ids": [
+            "egov-sougou-shien"
+          ]
+        },
+        {
+          "id": "claim-c2",
+          "statement": "令和4年法律第104号の改正により創設され、2025年10月1日から開始。訓練等給付費の対象（法第28条第2項）。",
+          "source_ids": [
+            "egov-sougou-shien",
+            "mhlw-jisshi"
+          ]
+        },
+        {
+          "id": "claim-c3",
+          "statement": "基本的なプロセスは、作業場面を活用したアセスメント、多機関ケース会議、結果の作成と連絡調整、地域情報の収集と提供で、研修修了者が本人と協同して行う。",
+          "source_ids": [
+            "mhlw-gakkou"
+          ]
+        },
+        {
+          "id": "claim-c4",
+          "statement": "大阪市は、就労選択支援は就労の可否判断や振り分けではないとし、家族・学校・支援機関等を交えたケース会議、A型・B型利用開始後も本人の希望で利用できることを示している。",
+          "source_ids": [
+            "osaka-jisshi"
+          ]
+        },
+        {
+          "id": "claim-c5",
+          "statement": "対象者は、就労移行支援・就労継続支援を利用する意向がある人と現に利用している人。",
+          "source_ids": [
+            "mhlw-jisshi"
+          ]
+        },
+        {
+          "id": "claim-c6",
+          "statement": "2025年10月から新たにB型を利用する場合は原則就労選択支援を先に利用。50歳以上・障害基礎年金1級・就労経験があり一般就労が困難になった人は例外。近隣に事業所がない・待機期間が生じる場合は就労移行支援事業所等のアセスメントで可。例外の人やA型・就労移行支援の希望者等も本人の希望で利用可。",
+          "source_ids": [
+            "mhlw-jisshi"
+          ]
+        },
+        {
+          "id": "claim-c7",
+          "statement": "2027年4月以降はA型の新規利用・就労移行支援の標準利用期間超えもアセスメント実施者が対象となる予定で、2025年9月30日改正の通知（2026年11月18日に厚労省ページで掲載を確認）では取扱いは改めて示すとされている。",
+          "source_ids": [
+            "mhlw-jisshi",
+            "mhlw-page"
+          ]
+        },
+        {
+          "id": "claim-c8",
+          "statement": "支給決定期間は原則1か月。例外事由で一度のみ再度1か月、当初から明らかなら2か月（延長不可）。",
+          "source_ids": [
+            "mhlw-jisshi"
+          ]
+        },
+        {
+          "id": "claim-c9",
+          "statement": "アセスメントは2週間程度を想定、5日間程度も可。大阪市では1か月の利用日数は暦日数から8日を引いた日数が上限。",
+          "source_ids": [
+            "mhlw-gakkou",
+            "osaka-jisshi"
+          ]
+        },
+        {
+          "id": "claim-c10",
+          "statement": "18歳以上向けだが、特別支援学校等の1年次から利用でき、在学中に複数回利用可能。15歳以上18歳未満は児童相談所長の認定と市町村長への通知が必要。",
+          "source_ids": [
+            "mhlw-gakkou"
+          ]
+        },
+        {
+          "id": "claim-c11",
+          "statement": "授業日に登校できない日は校長の判断で出席停止・忌引等の日数として扱え、教育活動に位置づけて出席扱いも可能。長期休業中に希望が集中する可能性。",
+          "source_ids": [
+            "mhlw-gakkou"
+          ]
+        },
+        {
+          "id": "claim-c12",
+          "statement": "大阪市では卒業後すぐB型を希望する場合は原則在学中にアセスメント。流れは8段階。卒業予定者は連続5日間程度の特例、1・2年次の結果で卒業年次に申請可、3年次の待機期間の特例。",
+          "source_ids": [
+            "osaka-gakkou"
+          ]
+        },
+        {
+          "id": "claim-c13",
+          "statement": "大阪市では区保健福祉センターが支給決定。申請には原則サービス等利用計画案が必要で、セルフプランも妨げないが指定相談支援事業所の利用を勧奨。",
+          "source_ids": [
+            "osaka-jisshi",
+            "osaka-gakkou"
+          ]
+        },
+        {
+          "id": "claim-c14",
+          "statement": "訓練等給付費の対象で、利用者負担は家計の負担能力等をしん酌して政令で定める額（費用の1割が上限）。",
+          "source_ids": [
+            "egov-sougou-shien"
+          ]
+        },
+        {
+          "id": "claim-c15",
+          "statement": "2026年6月末時点の就労選択支援事業所数は全国965、大阪市指定34、大阪府指定30、堺市指定5。",
+          "source_ids": [
+            "mhlw-jigyousho-su"
+          ]
+        },
+        {
+          "id": "claim-c16",
+          "statement": "就労系サービス事業者は計画相談支援を行う者と連携し、支給決定更新時などに就労選択支援の情報提供と利用促進を行う。",
+          "source_ids": [
+            "mhlw-jisshi"
+          ]
+        }
+      ],
+      "editorial_proposals": "「何をするのか」の注記（振り分けではない点の意味と、ケース会議でのご家族の役割）は「行政書士の解説」ラベルで、「親なきあとの備えとして考えたいこと」の箇条書きは「ここからは制度の説明ではなく、…当事務所からのおすすめです」の前置きで、制度の説明と区別して本文に明記。相談欄は市区町村の支給決定・個別の判定、指定特定相談支援事業所の計画案作成、社会保険労務士の障害年金と、行政書士が扱える任意後見契約・見守り契約・遺言・民事信託の文案作成を区別した案内。",
+      "review": {
+        "reviewed_on": "2026-11-18",
+        "reviewer": "（作成中）",
+        "article_sha256": "ac49155b169790c2a39fc4e903a6fee45fef81e88130fe1186c6f31089874a9f",
+        "gates": [
+          {
+            "id": 1,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 2,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 3,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 4,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 5,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 6,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 7,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 8,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 9,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 10,
+            "result": "pass",
+            "evidence": "作成中"
+          }
+        ]
+      }
     }
   ]
 }
