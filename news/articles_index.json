@@ -4480,6 +4480,198 @@
           }
         ]
       }
+    },
+    {
+      "id": "jiritsu-shien-iryou-seishin",
+      "slug": "jiritsu-shien-iryou-seishin",
+      "file": "2026-11-25-jiritsu-shien-iryou-seishin.html",
+      "title": "「自立支援医療（精神通院医療）」とは？通院医療費の自己負担が1割に、世帯の所得に応じて月の上限額（0円〜20,000円）――大阪市の所得区分と申請、毎年の更新、親なきあとに続く通院の備え",
+      "summary": "精神疾患（てんかん・知的障がいを含む）で通院を続ける方の医療費の自己負担を軽くする自立支援医療（精神通院医療）について、対象と負担のしくみ、大阪市の所得区分と月の自己負担上限額（0円〜20,000円）、使える医療機関と上限額管理票、区の保健福祉センターでの申請と毎年の更新を、法令と厚生労働省・大阪市の案内に基づいて整理します。",
+      "category": {
+        "id": "money",
+        "label": "お金の備え"
+      },
+      "published_date": "2026-11-25",
+      "updated_date": "2026-11-25",
+      "verified_date": "2026-11-25",
+      "status": "release",
+      "sources": [
+        {
+          "id": "egov-sougou",
+          "publisher": "e-Gov 法令検索（デジタル庁）",
+          "title": "障害者の日常生活及び社会生活を総合的に支援するための法律（平成17年法律第123号）",
+          "url": "https://laws.e-gov.go.jp/api/1/lawdata/417AC0000000123",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "current-law",
+          "checked_on": "2026-11-25",
+          "locator": "第52条（支給認定）、第58条第3項第1号（自立支援医療費の額：費用から政令で定める額〈費用の百分の十が上限〉を控除）",
+          "verification": "2026年11月25日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。e-Gov 法令 API の XML から条文を抽出して確認。"
+        },
+        {
+          "id": "mhlw-seishin",
+          "publisher": "厚生労働省",
+          "title": "自立支援医療（精神通院医療）について",
+          "url": "https://www.mhlw.go.jp/seisakunitsuite/bunya/hukushi_kaigo/shougaishahukushi/jiritsu/dl/03.pdf",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "leaflet",
+          "checked_on": "2026-11-25",
+          "locator": "○対象となる方（すべての精神疾患、統合失調症・気分障害・不安障害・知的障害・てんかん等）、○医療費の軽減が受けられる医療の範囲（入院しない医療、対象外の医療）",
+          "verification": "2026年11月25日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。PDF は pdftotext -layout でテキスト化して確認。"
+        },
+        {
+          "id": "osaka-seishin",
+          "publisher": "大阪市",
+          "title": "自立支援医療（精神通院）",
+          "url": "https://www.city.osaka.lg.jp/kenko/page/0000005863.html",
+          "type": "primary",
+          "document_date": "2026-03-31",
+          "date_precision": "day",
+          "date_kind": "page-date",
+          "checked_on": "2026-11-25",
+          "locator": "窓口費用について（保険7割・公費2割・本人1割、生活保護は公費100%、入院は公費負担なし）、自己負担上限額（世帯の定義、所得区分の認定）、所得区分表、経過的特例（令和9年3月31日まで）、自己負担上限額管理票、利用できる医療機関（受給者証記載の医療機関、病院・診療所1か所、薬局2か所、変更申請）、申請に必要な書類（注1〜注8：更新は有効期限の3か月前から、更新時の診断書は2年に1回）、受付窓口（区保健福祉センター、郵便可）、18歳未満は保護者の個人番号",
+          "verification": "2026年11月25日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。取得時に 408（時間切れ）が続いたため、間隔をあけて再試行し 200 で取得した。"
+        },
+        {
+          "id": "egov-rei",
+          "publisher": "e-Gov 法令検索（デジタル庁）",
+          "title": "障害者の日常生活及び社会生活を総合的に支援するための法律施行令（平成18年政令第10号）",
+          "url": "https://laws.e-gov.go.jp/api/1/lawdata/418CO0000000010",
+          "type": "primary",
+          "document_date": null,
+          "date_precision": "unknown",
+          "date_kind": "current-law",
+          "checked_on": "2026-11-25",
+          "locator": "第35条（指定自立支援医療に係る負担上限月額：第1号 高額治療継続者 1万円、第2号 高額治療継続者で所得割合算額3万3千円未満 5千円、第3号 市町村民税世帯非課税者 5千円、第4号 世帯非課税かつ公的年金等の収入・合計所得金額・障害基礎年金等の合計82万6千5百円以下 2千5百円、第5号 被保護者等 零）",
+          "verification": "2026年11月25日（日本時間）、クラウド環境「oyanakigo」から curl で原資料を取得し、本文の該当箇所の原文を直接確認した（要約経由ではない）。e-Gov 法令 API の XML から条文を抽出して確認。"
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim-c1",
+          "statement": "自立支援医療費は市町村等の支給認定が必要（法第52条）。額は医療費から家計の負担能力等をしん酌した政令の額（費用の1割が上限）を控除した額（法第58条第3項）。",
+          "source_ids": [
+            "egov-sougou"
+          ]
+        },
+        {
+          "id": "claim-c2",
+          "statement": "厚労省：精神通院医療の対象者（すべての精神疾患、例示）と対象となる医療・対象外の医療。",
+          "source_ids": [
+            "mhlw-seishin"
+          ]
+        },
+        {
+          "id": "claim-c3",
+          "statement": "大阪市：健保・国保は保険7割・公費2割・本人1割、生活保護は公費100%、入院は公費負担なし。",
+          "source_ids": [
+            "osaka-seishin"
+          ]
+        },
+        {
+          "id": "claim-c4",
+          "statement": "大阪市：上限額は世帯収入と重度かつ継続の該当で決まり、世帯は同じ健康保険の加入者。所得区分表の上限額と、一定所得以上の重度かつ継続は令和9年3月31日までの経過的特例。",
+          "source_ids": [
+            "osaka-seishin"
+          ]
+        },
+        {
+          "id": "claim-c5",
+          "statement": "施行令第35条の負担上限月額（0円・2,500円〈82万6,500円以下、障害基礎年金等を合算〉・5,000円・高額治療継続者5,000円／10,000円）。",
+          "source_ids": [
+            "egov-rei"
+          ]
+        },
+        {
+          "id": "claim-c6",
+          "statement": "大阪市：受給者証記載の指定医療機関のみ、病院・診療所1か所・薬局2か所、変更・追加は事前の変更申請。",
+          "source_ids": [
+            "osaka-seishin"
+          ]
+        },
+        {
+          "id": "claim-c7",
+          "statement": "大阪市：自己負担上限額管理票の提示・記入、上限月額到達後はその月の自己負担免除。",
+          "source_ids": [
+            "osaka-seishin"
+          ]
+        },
+        {
+          "id": "claim-c8",
+          "statement": "大阪市：申請先は区保健福祉センター（郵便可）、新規申請の書類、18歳未満は保護者の個人番号。",
+          "source_ids": [
+            "osaka-seishin"
+          ]
+        },
+        {
+          "id": "claim-c9",
+          "statement": "大阪市：有効期間1年以内・毎年更新、更新は有効期限の3か月前から、更新時の診断書は2年に1回、期限後は新規扱い。",
+          "source_ids": [
+            "osaka-seishin"
+          ]
+        }
+      ],
+      "editorial_proposals": "所得区分の注記（障害基礎年金の受給で区分が変わりうること、窓口への相談）は「行政書士の解説」ラベルで、「親なきあとの備えとして考えたいこと」は「ここからは制度の説明ではなく、…当事務所からのおすすめです」の前置きで、制度の説明と区別して本文に明記。相談欄は区の保健福祉センターでの申請・支給認定、医療機関の診断、社会保険労務士の障害年金と、行政書士が扱える文案作成を区別した案内。",
+      "review": {
+        "reviewed_on": "2026-11-25",
+        "reviewer": "（作成中）",
+        "article_sha256": "7c223c27bbed3d4f9255190137a0d30486c642b2a37655bb1ccbe36402c986e5",
+        "gates": [
+          {
+            "id": 1,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 2,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 3,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 4,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 5,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 6,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 7,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 8,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 9,
+            "result": "pass",
+            "evidence": "作成中"
+          },
+          {
+            "id": 10,
+            "result": "pass",
+            "evidence": "作成中"
+          }
+        ]
+      }
     }
   ]
 }
